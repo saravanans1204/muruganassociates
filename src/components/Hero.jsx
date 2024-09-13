@@ -3,31 +3,34 @@ import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import Tech from "./Tech";
 import React, { useState, useEffect, useRef } from "react";
-import TOPOLOGY from 'vanta/dist/vanta.halo.min'
-import * as THREE from 'three'
+import TOPOLOGY from "vanta/dist/vanta.globe.min";
+import * as THREE from "three";
 const Hero = () => {
-  const [vantaEffect, setVantaEffect] = useState(null)
-  const myRef = useRef(null)
+  const [vantaEffect, setVantaEffect] = useState(null);
+  const myRef = useRef(null);
   useEffect(() => {
     if (!vantaEffect) {
-      setVantaEffect(TOPOLOGY({
-        el: myRef.current
-        , THREE,
-        mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
-  scaleMobile: 1.00
-        ,color: 0xC4DAD2,
-        backgroundColor: 0x6A9C89
-      }))
+      setVantaEffect(
+        TOPOLOGY({
+          el: myRef.current,
+          THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          size: 0.8,
+         color: 0xf03e72,
+         backgroundColor: 0x9BBEC8
+        })
+      );
     }
     return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    }
-  }, [vantaEffect])
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [vantaEffect]);
   return (
     <section className={`relative w-full h-screen mx-auto`} ref={myRef}>
       <div
@@ -49,8 +52,6 @@ const Hero = () => {
           </p>
         </div>
       </div>
-
-      
 
       {/* <ComputersCanvas /> */}
       {/* <div className="sm:pl-4 mt-4">

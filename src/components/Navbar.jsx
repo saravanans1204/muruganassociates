@@ -56,7 +56,7 @@ const Navbar = () => {
               key={nav.id}
               className={`${
                 active === nav.title ? "text-black" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              } hover:text-black duration-200 ease-in-out text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
