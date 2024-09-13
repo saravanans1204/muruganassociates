@@ -22,7 +22,7 @@ const App = () => {
       </div>
       <div className='relative z-0  ' style={{ background: "#000" }}>
         <Footer />
-        <div className="w-full bg-green-100 text-black px-40 pt-20 pb-10 opacity-90 font-medium" >
+        <div className="w-full bg-green-100 text-black px-10 pt-20 pb-10 opacity-90 font-medium" >
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <h3 className="text-lg font-bold mb-2 opacity-70">Contact Us</h3>
