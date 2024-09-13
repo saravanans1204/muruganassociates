@@ -3,34 +3,69 @@ import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import Tech from "./Tech";
 import React, { useState, useEffect, useRef } from "react";
-import TOPOLOGY from "vanta/dist/vanta.globe.min";
-import * as THREE from "three";
+import GLOBE from "vanta/dist/vanta.globe.min";
+import TOPOLOGY from "vanta/dist/vanta.topology.min";
+
+import p5 from 'p5'
 const Hero = () => {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
   useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(
-        TOPOLOGY({
-          el: myRef.current,
-          THREE,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          size: 0.8,
-         color: 0xf03e72,
-         backgroundColor: 0x9BBEC8
-        })
-      );
+    console.log(isMobile())
+    if(isMobile()){
+      if (!vantaEffect) {
+        setVantaEffect(
+          TOPOLOGY({
+            el: myRef.current,
+            p5,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xDF0D2B,
+            backgroundColor: 0x558293
+          })
+        );
+      }
+    }else{
+      if (!vantaEffect) {
+        setVantaEffect(
+          GLOBE({
+            el: myRef.current,
+            THREE,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            color: 0xDF0D2B,
+            size: 0.75,
+            backgroundColor: 0x558293
+          })
+        );
+      }
     }
+   
+  
     return () => {
       if (vantaEffect) vantaEffect.destroy();
     };
   }, [vantaEffect]);
+  
+
+  function isMobile() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  
+    // Regular expressions to detect mobile devices
+    const isMobileDevice = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+  
+    return isMobileDevice;
+  }
+  
   return (
     <section className={`relative w-full h-screen mx-auto`} ref={myRef}>
       <div
@@ -52,24 +87,6 @@ const Hero = () => {
           </p>
         </div>
       </div>
-
-      {/* <ComputersCanvas /> */}
-      {/* <div className="sm:pl-4 mt-4">
-          <div>
-            <h2
-              className={
-                   "sm:text-3xl text-5xl pb-4 font-russonOne font-medium no-underline align-middle tracking-wide normal-case leading-normal text-dark"
-              }
-            >
-              Modern Design
-            </h2>
-          </div>
-          <img
-            className="sm:h-[475px] h-[765px] w-full bg-no-repeat bg-center relative z-10 header rounded-xl"
-            src={header1}
-            alt="header-phone"
-          ></img>
-        </div> */}
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
