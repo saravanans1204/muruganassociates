@@ -29,7 +29,7 @@ module.exports = {
         xs: "450px",
       },
       backgroundImage: {
-        "hero-pattern": "url('/src/assets/greyish.jpg')",
+        "hero-pattern": "url('/src/assets/greyish.png')",
         'overlay': 'rgba(255, 255, 255, 0.5)', // Adjust color and 
 
       },
