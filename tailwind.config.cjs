@@ -38,7 +38,9 @@ module.exports = {
         wrapperBg: "url('assets/images/wrapperBackground.svg')",
         wrapperDark: "url('assets/images/wrapperDark.svg')",
       },
-    //     screens: {
+      
+        screens: {
+          'sm-custom': {'max': '1150px'},
     //   "2xl": { max: "1535px" },
     //   // => @media (max-width: 1535px) { ... }
     //   xl: { max: "1279px" },
@@ -49,7 +51,7 @@ module.exports = {
     //   // => @media (max-width: 767px) { ... }
     //   sm: { max: "639px" },
     //   // => @media (max-width: 639px) { ... }
-    // },
+    },
     },
   },
   plugins: [],
