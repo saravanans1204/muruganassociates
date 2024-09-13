@@ -5,8 +5,10 @@ import Tech from "./Tech";
 import React, { useState, useEffect, useRef } from "react";
 import GLOBE from "vanta/dist/vanta.globe.min";
 import TOPOLOGY from "vanta/dist/vanta.topology.min";
-
+import * as THREE from 'three';
 import p5 from 'p5'
+
+
 const Hero = () => {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
