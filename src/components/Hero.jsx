@@ -46,7 +46,7 @@ const Hero = () => {
             scale: 1.00,
             color: 0xDF0D2B,
             size: 0.75,
-            backgroundColor: 0x558293
+            backgroundColor: 0x588DA2
           })
         );
       }
